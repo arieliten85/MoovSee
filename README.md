@@ -13,7 +13,7 @@ Tambien se puede crear un usuario para poder agregar tanto peliculas como series
 - Validación de Usuario **Passport.JS**
 - Seguridad de contraseña **Bcrypt**
 
-### ¡Te invito a que los veas! 👇
+### ¡Otros proyectos! 👇
 
 - [PauMac - Fotografa](https://paula-mac.netlify.app)
 - [TodoDulceMary - Reposteria](https://arieliten85.github.io/TDM_JS_FINAL/index.html)
