@@ -37,7 +37,7 @@ Use este comando para correr el servidor del front:
 
 Use este comando para correr el servidor del back:
 
-### `npm server`
+### `npm run server`
 
 ## Screenshot
 
