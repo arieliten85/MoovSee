@@ -1,0 +1,50 @@
+@import "./component";
+@import "./nav";
+@import "./register";
+@import "./movieCard";
+@import "./movieCardSelect";
+@import "./profile";
+@import "./search";
+@import "./carousel";
+@import "./sideTop";
+@import "./banner";
+@import "./favoritosContainer";
+
+body {
+  background-color: #080f28;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow-x: hidden;
+  
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen,
+    Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+}
+
+.pages {
+  color: #316685;
+  text-align: center;
+  font-size: 3.5rem;
+  margin-top: 10%;
+}
+
+h2 {
+  font-size: 20px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+h5 {
+  font-size: 20px;
+  font-family: "Source Code Pro", monospace;
+}
+h3 {
+  font-family: "Josefin Sans", sans-serif;
+}
