@@ -6,12 +6,12 @@
 
 .card {
   border-radius: 10px;
-  min-width: 150px;
-  width: 185px;
+  //min-width: 150px;
+ // width: 185px;
   overflow: hidden;
   position: relative;
   background-color: #125eaf;
-  height: 335px;
+  //height: 335px;
   border-bottom-left-radius: 20px;
   -webkit-box-shadow: 1px 1px 15px -4px #330bff;
   box-shadow: 1px 1px 15px -4px #330bff;
@@ -26,15 +26,15 @@
 }
 .contenedorMovies {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
   justify-items: center;
   align-items: center;
   justify-content: space-evenly;
   gap: 2em;
   padding-bottom: 15px;
   border-radius: 5px;
-  width: 70% !important;
-
+  // width: 70% !important;
+  width: 90% !important;
   .MovieBox {
     text-align: center;
     position: relative;
@@ -76,12 +76,12 @@
 
       p {
         position: absolute;
-        bottom: 3.6rem;
+        bottom: 2.6rem;
         right: 7px;
         z-index: 3;
         font-size: 0.75rem;
         font-weight: 700;
-        background-color: #007aff;
+        background-color: #1dbf83;
         padding: 0 0.5rem;
         line-height: 1.2rem;
         border-radius: 1rem;
@@ -96,8 +96,8 @@
       align-items: center;
       justify-content: center;
       border-bottom-left-radius: 20px;
-      background-color: rgba(240, 0, 0, 0.616);
-      height: 38px;
+     // background-color: rgba(240, 0, 0, 0.616);
+      height: 25px;
 
       .boxVoto {
         display: flex;
@@ -124,7 +124,7 @@
     top: 5px;
     right: 4px;
 
-    color: #b28c1a;
+    color: #837e6f;
     font-size: 27px;
   }
 }

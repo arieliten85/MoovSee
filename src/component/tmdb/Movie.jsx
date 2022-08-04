@@ -26,7 +26,7 @@ export default function Movie({ movie }) {
               {movie.title}
             </h4>
 
-            <p className="texto"> - {movie[data].substring(0, 4)} -</p>
+            <p className=""> - {movie[data].substring(0, 4)} -</p>
           </div>
         </div>
         <HookFavoritos movieSelect={movie} category={"movie"} id={movie.id} />

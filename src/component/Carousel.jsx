@@ -6,7 +6,7 @@ import MovieSimilar from "../component/MovieSimilar";
 export default class Carousel extends Component {
   render() {
     var settings = {
-     dots: true,
+      dots: true,
       infinite: false,
       speed: 500,
       slidesToShow: 4,
@@ -15,34 +15,25 @@ export default class Carousel extends Component {
       infinite: true,
       responsive: [
         {
-          breakpoint: 1280,
+          breakpoint: 470,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true,
+            slidesToScroll: 1,
           },
         },
+
         {
-          breakpoint: 810,
+          breakpoint: 580,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          },
+        },
+
+        {
+          breakpoint: 700,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3,
-            initialSlide: 2,
-          },
-        },
-        {
-          breakpoint: 1267,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            initialSlide: 2,
-          },
-        },
-        {
-          breakpoint: 375,
-          settings: {
-            slidesToShow: 1,
             slidesToScroll: 1,
           },
         },
