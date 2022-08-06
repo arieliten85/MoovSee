@@ -1,27 +1,40 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import useInput from "../utils/custom-hooks";
-import swal from "sweetalert2";
+import Swal from "sweetalert2";
 
 export default function Login() {
   const { toggleAuth } = useContext(UserContext);
-  const { mostrarAlerta, msg, isAuthenticated } = useContext(UserContext);
-  const [error, setError] = useState(true);
+  const { mostrarAlerta, msg } = useContext(UserContext);
+  
   const navigate = useNavigate();
   const password = useInput();
   const email = useInput();
 
-  const Alerta = () => {
-    swal.fire({
-      icon: "success",
-      title: "Successful operation",
-      text: "It's nice to have you back",
+  
+    const Alerta = (mensaje, stado, subMensaje) => {
+    Swal.fire({
+      icon: stado,
+      title: mensaje,
+       text: subMensaje,
       showConfirmButton: false,
       timer: 3500,
     });
   };
+  const showLoading = () => {
+    Swal.fire({
+      title: "Loading...",
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      timer: 3500,
+      willOpen: () => {
+        Swal.showLoading();
+      },
+    });
+  };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -32,6 +45,8 @@ export default function Login() {
       });
       return;
     }
+    
+     showLoading();
 
     axios
       .post("https://moseesee-back.herokuapp.com/api/users/login", {
@@ -41,26 +56,18 @@ export default function Login() {
       })
       .then((resp) => {
         toggleAuth(resp.data);
+        Alerta("Successful operation", "success","It's nice to have you back");
+        
+          setTimeout(() => {
+          navigate("/");
+        }, 4000);
+
       })
-      .catch((err) => setError(err.response.request.withCredentials));
-  };
-  useEffect(() => {
-    if (error === false) {
-      mostrarAlerta({
-        msg: "Error loading your data, please check the fields",
+      .catch((err) => {
+       Alerta("Error starting section, Please check your data", "error");
       });
-
-      setError(true);
-      return;
-    }
-  }, [error]);
-
-  if (isAuthenticated) {
-    Alerta();
-    setTimeout(() => {
-      navigate("/");
-    }, 4000);
-  }
+  };
+ 
 
   return (
     <div className="formContent">
