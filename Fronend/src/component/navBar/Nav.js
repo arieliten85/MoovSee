@@ -16,12 +16,17 @@ export default function Nav() {
   const handleClick = () => setClick(!click);
 
   const handleClickLogOut = async () => {
-    try {
-      await axios.post("http://localhost:4000/api/users/logout");
-      localStorage.clear();
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   await axios.post("https://moseesee-back.herokuapp.com/api/users/logout");
+    //   localStorage.clear();
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    axios
+      .get("https://moseesee-back.herokuapp.com/api/users/logout")
+      .then(() => {});
+    localStorage.clear();
 
     setIsLoogedId({});
     navigate("/");
@@ -37,7 +42,7 @@ export default function Nav() {
               <MdLocalMovies className="iconoLogo" />
               <div className="line2"></div>
             </div>
-            <h1 className="textoLogo">MooSee</h1>
+            <h1 className="textoLogo">MoovSee</h1>
           </div>
         </Link>
 

@@ -23,8 +23,9 @@ export default function MovieTopItem({ movie }) {
            className='datainfo'
             style={{
               display: "flex",
-              justifyContent:"space-around",
-              width: "80%"
+              gap: "10px",
+              // justifyContent:"space-around",
+              width: "100%"
             }}
           >
             <p className="votoTop ">{movie.vote_average}/<span  style={{fontSize: "17.9px"}} >10</span></p>

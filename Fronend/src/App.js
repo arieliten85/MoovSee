@@ -14,7 +14,9 @@ import FavoritosContext from "./context/FavoritosContext";
 import Me from "./component/profile/Me";
 import SerieContext from "./context/SerieContext";
 
+
 function App() {
+  
   return (
     <>
       <FavoritosContext>

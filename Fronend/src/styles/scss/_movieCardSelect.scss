@@ -140,16 +140,20 @@
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    max-width: 80%;
+    justify-content: center;
+    margin: 0 auto;
+    //gap: 20px;
+    width: 100%;
+    margin: 0 auto;
     height: 50px;
+
+  
 
     p {
       font-size: 15px;
       padding: 0;
-      text-align: left !important;
-      width: 170px;
+      text-align: center !important;
+      width: 150px;
     }
     .boxCorazon {
       .cf {

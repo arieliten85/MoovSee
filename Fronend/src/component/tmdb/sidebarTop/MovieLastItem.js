@@ -21,8 +21,9 @@ export default function MovieLastItem({ movie }) {
             className="datainfo"
             style={{
               display: "flex",
-              justifyContent: "space-around",
-              width: "20%",
+              gap: "10px",
+              // justifyContent: "space-around",
+              width: "100%"
             }}
           >
             <p className="votoTop ">

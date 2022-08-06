@@ -26,15 +26,14 @@
 }
 .contenedorMovies {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
   justify-items: center;
   align-items: center;
   justify-content: space-evenly;
-  gap: 2em;
+  gap: 1em;
   padding-bottom: 15px;
   border-radius: 5px;
-  // width: 70% !important;
-  width: 90% !important;
+  width: 91% !important;
   .MovieBox {
     text-align: center;
     position: relative;
@@ -56,7 +55,7 @@
       overflow: hidden !important;
       width: 100%;
       position: relative;
-      height: 284px;
+     // height: 284px;
       border-top-right-radius: 100px;
     }
     div {

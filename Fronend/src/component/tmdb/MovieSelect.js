@@ -18,8 +18,20 @@ export default function MovieSelect({ movieSelect }) {
     if (user) {
       axios
         .get(
-          `http://localhost:4000/api/favourite/${user.id}/${categoria}/${id}`
+          `https://moseesee-back.herokuapp.com/api/favourite/${user.id}/${categoria}/${id}`
         )
+        .then((res) => SetExiste(res.data.success));
+      //.catch((err) => console.log(err.response.data.success));
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (user) {
+      axios
+        .get(
+          `https://moseesee-back.herokuapp.com/api/favourite/${user.id}/${categoria}/${id}`
+        )
+
         .then((res) => SetExiste(res.data.success))
         .catch((err) => console.log(err.response.data.success));
     }
@@ -30,7 +42,9 @@ export default function MovieSelect({ movieSelect }) {
     const idUser = user.id;
 
     axios
-      .delete(`http://localhost:4000/api/favourite/${idUser}/${id}/delete`)
+      .delete(
+        `https://moseesee-back.herokuapp.com/api/favourite/${idUser}/${id}/delete`
+      )
       .then(() => {})
       .catch((err) => console.log(err));
 
@@ -40,7 +54,7 @@ export default function MovieSelect({ movieSelect }) {
 
   const agregarFavoritos = () => {
     const id = movieSelect.id;
-    axios.post("http://localhost:4000/api/favourite/add", {
+    axios.post("https://moseesee-back.herokuapp.com/api/favourite/add", {
       id: id,
       title: movieSelect.original_title,
       poster_path: movieSelect.poster_path,
@@ -146,7 +160,7 @@ export default function MovieSelect({ movieSelect }) {
                           left: "0px",
                           bottom: 0,
                           width: "100%",
-                          fontSize:"14px"
+                          fontSize: "14px",
                         }}
                         toastOptions={{
                           duration: 2000,
@@ -171,10 +185,10 @@ export default function MovieSelect({ movieSelect }) {
                           position: "absolute",
                           top: "60px",
                           left: "0px",
-                          bottom:"20px",
+                          bottom: "20px",
                           right: 0,
                           width: "100%",
-                          fontSize:"14px"
+                          fontSize: "14px",
                         }}
                         toastOptions={{
                           duration: 2000,

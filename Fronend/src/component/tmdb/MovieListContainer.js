@@ -13,9 +13,9 @@ export default function MovieListContainer() {
   const { categoria } = useParams();
 
   let cat;
-  if (categoria == "movie") cat = "Peliculas";
+  if (categoria == "movie") cat = "Movies";
   else if (categoria == "serie") cat = "Series";
-  else if (categoria == undefined) cat = "Peliculas";
+  else if (categoria == undefined) cat = "Movies";
 
   return (
     <>

@@ -4,7 +4,6 @@ import FavoritoSelect from "./FavoritoSelect";
 
 export default function Favoritos() {
   const { favoritos } = useContext(FavoritosContext);
-//const series = favoritos.filter((item) => item.category == "serie");
 
     return (
       <>

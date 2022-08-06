@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import { AiFillHeart } from "react-icons/ai";
-import { AiOutlineHeart } from "react-icons/ai";
-
 import axios from "axios";
 import { useParams } from "react-router";
 
@@ -15,10 +13,12 @@ export default function HookFavoritos({ movieSelect, category, id }) {
   useEffect(() => {
     if (user) {
       axios
-        .get(`https://moseesee-back.herokuapp.com/api/favourite/${user.id}/${category}/${id}`)
-       
-        .then((res) => SetExiste(res.data.success))
-        .catch((err) => console.log(err.response.data.success));
+        .get(
+          `https://moseesee-back.herokuapp.com/api/favourite/${user.id}/${category}/${id}`
+        )
+
+        .then((res) => SetExiste(res.data.success));
+      //.catch((err) => console.log(err.response.data.success));
     }
   }, [user]);
 
@@ -27,7 +27,9 @@ export default function HookFavoritos({ movieSelect, category, id }) {
     const idUser = user.id;
 
     axios
-      .delete(`https://moseesee-back.herokuapp.com/api/favourite/${idUser}/${id}/delete`)
+      .delete(
+        `https://moseesee-back.herokuapp.com/api/favourite/${idUser}/${id}/delete`
+      )
       .then(() => {})
       .catch((err) => console.log(err));
 
@@ -70,8 +72,6 @@ export default function HookFavoritos({ movieSelect, category, id }) {
               ) : (
                 ""
               )}
-
-           
             </div>
           ) : (
             <div
@@ -89,8 +89,6 @@ export default function HookFavoritos({ movieSelect, category, id }) {
               ) : (
                 ""
               )}
-
-            
             </div>
           )}
         </>

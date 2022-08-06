@@ -11,9 +11,6 @@ export default function Me() {
   useEffect(() => {
     axios
       .get(`https://moseesee-back.herokuapp.com/api/favourite/${user.id}`)
-
-     
-
       .then((resp) => setFavoritos(resp.data));
   }, [favoritos.id, user.id]);
 
