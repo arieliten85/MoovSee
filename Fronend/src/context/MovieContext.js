@@ -21,10 +21,12 @@ const MovieContextProvider = ({ children }) => {
   const query = useQuery();
   const search = query.get("search");
 
+  const ApiKey = "5b20532c734f556ebab419a5c9e8fbde
+
   useEffect(() => {
     const searchUrl = search
-      ? `https://api.themoviedb.org/3/search/multi?api_key=0719e4f07abaf7a91364967ca675ffc0&language=en-US&query=${search}`
-      : "https://api.themoviedb.org/3/movie/popular?api_key=0719e4f07abaf7a91364967ca675ffc0";
+      ? `https://api.themoviedb.org/3/search/multi?api_key=${ApiKey}&language=en-US&query=${search}`
+      : `https://api.themoviedb.org/3/movie/popular?api_key${ApiKey}`;
 
     axios
       .get(searchUrl)
