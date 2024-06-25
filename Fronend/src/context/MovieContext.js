@@ -16,12 +16,12 @@ const MovieContextProvider = ({ children }) => {
   const [movieSelect, setMovieSelect] = useState([]);
   const [topMovie, setTopMovie] = useState([]);
   const [lastMovie, setLastMovie] = useState([]);
-  const [similarMovie, setSimilarMovie]=useState([])
- 
+  const [similarMovie, setSimilarMovie] = useState([]);
+
   const query = useQuery();
   const search = query.get("search");
 
-  const ApiKey = "5b20532c734f556ebab419a5c9e8fbde
+  const ApiKey = "5b20532c734f556ebab419a5c9e8fbde";
 
   useEffect(() => {
     const searchUrl = search
@@ -46,7 +46,7 @@ const MovieContextProvider = ({ children }) => {
       })
       .catch((error) => console.log(error));
 
-      axios
+    axios
       .get(
         "https://api.themoviedb.org/3/movie/upcoming?api_key=0719e4f07abaf7a91364967ca675ffc0"
       )
@@ -55,7 +55,7 @@ const MovieContextProvider = ({ children }) => {
       })
       .catch((error) => console.log(error));
 
-      axios
+    axios
       .get(
         "https://api.themoviedb.org/3/movie/popular?api_key=0719e4f07abaf7a91364967ca675ffc0"
       )
@@ -63,7 +63,6 @@ const MovieContextProvider = ({ children }) => {
         setMoviesBanner(resp.data.results);
       })
       .catch((error) => console.log(error));
-      
   }, []);
 
   return (
@@ -79,7 +78,7 @@ const MovieContextProvider = ({ children }) => {
         lastMovie,
         setSimilarMovie,
         similarMovie,
-        moviesBanner
+        moviesBanner,
       }}
     >
       {children}
