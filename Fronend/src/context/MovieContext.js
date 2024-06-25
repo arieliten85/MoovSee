@@ -21,12 +21,12 @@ const MovieContextProvider = ({ children }) => {
   const query = useQuery();
   const search = query.get("search");
 
-  const API_KEY = "5b20532c734f556ebab419a5c9e8fbde";
+  const ApiKey = "5b20532c734f556ebab419a5c9e8fbde";
 
   useEffect(() => {
     const searchUrl = search
-      ? `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=en-US&query=${search}`
-      : `https://api.themoviedb.org/3/movie/popular?api_key${API_KEY}`;
+      ? `https://api.themoviedb.org/3/search/multi?api_key=${ApiKey}&language=en-US&query=${search}`
+      : `https://api.themoviedb.org/3/movie/popular?api_key${ApiKey}`;
 
     axios
       .get(searchUrl)
@@ -34,30 +34,36 @@ const MovieContextProvider = ({ children }) => {
         setMovies(resp.data.results);
       })
       .catch((error) => console.log(error));
-  }, [search, API_KEY]);
+  }, [search, ApiKey]);
 
   useEffect(() => {
     axios
-      .get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`)
+      .get(
+        "https://api.themoviedb.org/3/movie/top_rated?api_key=5b20532c734f556ebab419a5c9e8fbde"
+      )
       .then((resp) => {
         setTopMovie(resp.data.results);
       })
       .catch((error) => console.log(error));
 
     axios
-      .get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`)
+      .get(
+        "https://api.themoviedb.org/3/movie/upcoming?api_key=5b20532c734f556ebab419a5c9e8fbde"
+      )
       .then((resp) => {
         setLastMovie(resp.data.results);
       })
       .catch((error) => console.log(error));
 
     axios
-      .get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
+      .get(
+        "https://api.themoviedb.org/3/movie/popular?api_key=5b20532c734f556ebab419a5c9e8fbde"
+      )
       .then((resp) => {
         setMoviesBanner(resp.data.results);
       })
       .catch((error) => console.log(error));
-  }, [API_KEY]);
+  }, [ApiKey]);
 
   return (
     <MovieContext.Provider
