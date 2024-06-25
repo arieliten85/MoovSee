@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { createContext, useState } from "react";
+import { TMDB_API_KEY } from "./apiKey";
 
 export const SerieContext = createContext();
 const SerieContextProvider = ({ children }) => {
@@ -12,29 +13,23 @@ const SerieContextProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get(
-        "https://api.themoviedb.org/3/tv/popular?api_key=0719e4f07abaf7a91364967ca675ffc0"
-      )
+      .get(`https://api.themoviedb.org/3/tv/popular?api_key=${TMDB_API_KEY}`)
       .then((resp) => {
         setSerie(resp.data.results);
       })
       .catch((error) => console.log(error));
   }, []);
-  
+
   useEffect(() => {
     axios
-      .get(
-        "https://api.themoviedb.org/3/tv/top_rated?api_key=0719e4f07abaf7a91364967ca675ffc0"
-      )
+      .get(`https://api.themoviedb.org/3/tv/top_rated?api_key=${TMDB_API_KEY}`)
       .then((resp) => {
         setTopSerie(resp.data.results);
       })
       .catch((error) => console.log(error));
 
     axios
-      .get(
-        "https://api.themoviedb.org/3/tv/on_the_air?api_key=0719e4f07abaf7a91364967ca675ffc0"
-      )
+      .get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${TMDB_API_KEY}`)
       .then((resp) => {
         setSoonSerie(resp.data.results);
       })
