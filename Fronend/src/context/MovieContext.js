@@ -21,7 +21,7 @@ const MovieContextProvider = ({ children }) => {
   const query = useQuery();
   const search = query.get("search");
 
-  const ApiKey = "5b20532c734f556ebab419a5c9e8fbde
+  const ApiKey = "5b20532c734f556ebab419a5c9e8fbde"
 
   useEffect(() => {
     const searchUrl = search
