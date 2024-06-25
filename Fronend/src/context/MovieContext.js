@@ -21,7 +21,7 @@ const MovieContextProvider = ({ children }) => {
   const query = useQuery();
   const search = query.get("search");
 
-  const API_KEY = process.env.REACT_APP_API_KEY;
+  const API_KEY = process.env.TMDB_API_KEY;
 
   useEffect(() => {
     const searchUrl = search
