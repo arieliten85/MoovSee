@@ -6,7 +6,6 @@ import MovieSimilar from "./MovieSimilar";
 export default class Carousel extends Component {
   render() {
     var settings = {
-      infinite: false,
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 4,

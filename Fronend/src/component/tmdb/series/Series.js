@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import HookFavoritos from "../../../utils/HookFavoritos";
 
 export default function Serie({ serie }) {
- 
-
-  let data;
-  if (serie.release_date) data = "release_date";
-  if (serie.first_air_date) data = "first_air_date";
+  let data = "";
+  if (serie.release_date) {
+    data = "release_date";
+  } else {
+    // eslint-disable-next-line no-unused-vars
+    data = "first_air_date";
+  }
 
   return (
     <div className="card">

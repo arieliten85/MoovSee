@@ -13,9 +13,9 @@ export default function MovieListContainer() {
   const { categoria } = useParams();
 
   let cat;
-  if (categoria == "movie") cat = "Movies";
-  else if (categoria == "serie") cat = "Series";
-  else if (categoria == undefined) cat = "Movies";
+  if (categoria === "movie") cat = "Movies";
+  else if (categoria === "serie") cat = "Series";
+  else if (categoria === undefined) cat = "Movies";
 
   return (
     <>
@@ -23,7 +23,7 @@ export default function MovieListContainer() {
       <h1 className={!categoria ? "tituloPelis" : "tituloPelis2"}>
         {cat} Online
       </h1>
-      {categoria === "serie" ? 
+      {categoria === "serie" ? (
         <div className="flexContainer">
           <div className="contenedorMovies">
             <SerieList />
@@ -34,7 +34,7 @@ export default function MovieListContainer() {
             <SerieSoonContainer />
           </div>
         </div>
-       : 
+      ) : (
         <div className="flexContainer">
           <div className="contenedorMovies">
             <MovieList />
@@ -45,7 +45,7 @@ export default function MovieListContainer() {
             <MovieLastContainer />
           </div>
         </div>
-      }
+      )}
     </>
   );
 }

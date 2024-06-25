@@ -2,9 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-export default function FavoritoSelect({ fav,i }) {
-
- 
+export default function FavoritoSelect({ fav, i }) {
   return (
     <Link to={`/${fav.category}/${fav.favoriteId}`}>
       <div className="MovieBox">
@@ -14,7 +12,11 @@ export default function FavoritoSelect({ fav,i }) {
           alt="Placeholder"
         />
         <div>
-          <h3 className="refTituloFav"> <span>{i+1}#</span> {fav.category =="movie" ? "Pelicula":"Serie"}</h3>
+          <h3 className="refTituloFav">
+            {" "}
+            <span>{i + 1}#</span>{" "}
+            {fav.category === "movie" ? "Pelicula" : "Serie"}
+          </h3>
         </div>
       </div>
     </Link>

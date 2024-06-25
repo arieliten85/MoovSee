@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import useInput from "../utils/custom-hooks";
@@ -6,8 +6,6 @@ import { UserContext } from "../context/UserContext";
 import Swal from "sweetalert2";
 
 export default function Registre() {
- 
-
   const { mostrarAlerta, msg } = useContext(UserContext);
 
   const name = useInput();
@@ -28,7 +26,6 @@ export default function Registre() {
 
     showLoading();
 
-
     axios
       .post("https://moseesee-back.herokuapp.com/api/users/register", {
         name: name.value,
@@ -36,20 +33,18 @@ export default function Registre() {
         password: password.value,
       })
       .then(() => {
-         Alerta("Successfully Registered User", "success");
+        Alerta("Successfully Registered User", "success");
 
         setTimeout(() => {
           navigate("/login");
         }, 4000);
       })
-       .catch(() => {
+      .catch(() => {
         Alerta("Error Registered User", "error");
       });
-
-   
   };
 
-   const Alerta = (mensaje, stado) => {
+  const Alerta = (mensaje, stado) => {
     Swal.fire({
       icon: stado,
       title: mensaje,
@@ -58,8 +53,7 @@ export default function Registre() {
     });
   };
 
-
-   const showLoading = () => {
+  const showLoading = () => {
     Swal.fire({
       title: "Loading...",
       allowOutsideClick: false,
@@ -71,32 +65,26 @@ export default function Registre() {
     });
   };
 
+  return (
+    <div className="formContent">
+      <form className="formBox" onSubmit={handleSubmit}>
+        <h1 className="">Register Account</h1>
+        <input type="text" placeholder="Name" {...name} />
+        <input type="email" placeholder="E-mail" {...email} />
+        <input type="password" placeholder="Password" {...password} />
+        <p>
+          {" "}
+          If you have an account? click<Link to={"/Login"}> here</Link>
+        </p>
+        <input
+          className="button"
+          type="submit"
+          value="Register"
+          onClick={() => {}}
+        />
 
-  
-
-    return (
-      <div className="formContent">
-        <form className="formBox" onSubmit={handleSubmit}>
-          <h1 className="">Register Account</h1>
-          <input type="text" placeholder="Name" {...name} />
-          <input type="email" placeholder="E-mail" {...email} />
-          <input type="password" placeholder="Password" {...password} />
-          <p>
-            {" "}
-            If you have an account? click<Link to={"/Login"}> here</Link>
-          </p>
-          <input
-            className="button"
-            type="submit"
-            value="Register"
-            onClick={() => {}}
-            
-          />
-          
-          {!msg ? "" : <p className="error">{msg}</p>}
-         
-        </form>
-      </div>
-    );
-  
+        {!msg ? "" : <p className="error">{msg}</p>}
+      </form>
+    </div>
+  );
 }

@@ -5,7 +5,7 @@ import axios from "axios";
 import { useParams } from "react-router";
 
 export default function HookFavoritos({ movieSelect, category, id }) {
-  const { idMovi, categoria } = useParams();
+  const { idMovi } = useParams();
 
   const { user, isAuthenticated } = useContext(UserContext);
   const [existe, SetExiste] = useState(Boolean);
@@ -18,9 +18,8 @@ export default function HookFavoritos({ movieSelect, category, id }) {
         )
 
         .then((res) => SetExiste(res.data.success));
-      //.catch((err) => console.log(err.response.data.success));
     }
-  }, [user]);
+  }, [category, id, user]);
 
   const eliminarFavoritos = () => {
     const id = movieSelect.id;

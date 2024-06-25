@@ -21,7 +21,7 @@ const MovieContextProvider = ({ children }) => {
   const query = useQuery();
   const search = query.get("search");
 
-  const API_KEY = process.env.TMDB_API_KEY;
+  const API_KEY = "5b20532c734f556ebab419a5c9e8fbde";
 
   useEffect(() => {
     const searchUrl = search
@@ -34,36 +34,30 @@ const MovieContextProvider = ({ children }) => {
         setMovies(resp.data.results);
       })
       .catch((error) => console.log(error));
-  }, [search]);
+  }, [search, API_KEY]);
 
   useEffect(() => {
     axios
-      .get(
-        "https://api.themoviedb.org/3/movie/top_rated?api_key=0719e4f07abaf7a91364967ca675ffc0"
-      )
+      .get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`)
       .then((resp) => {
         setTopMovie(resp.data.results);
       })
       .catch((error) => console.log(error));
 
     axios
-      .get(
-        "https://api.themoviedb.org/3/movie/upcoming?api_key=0719e4f07abaf7a91364967ca675ffc0"
-      )
+      .get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`)
       .then((resp) => {
         setLastMovie(resp.data.results);
       })
       .catch((error) => console.log(error));
 
     axios
-      .get(
-        "https://api.themoviedb.org/3/movie/popular?api_key=0719e4f07abaf7a91364967ca675ffc0"
-      )
+      .get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
       .then((resp) => {
         setMoviesBanner(resp.data.results);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [API_KEY]);
 
   return (
     <MovieContext.Provider
